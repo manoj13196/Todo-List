@@ -5,10 +5,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./src/scripts/index.js", // or wherever your main JS file is
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
-    clean: true, // cleans the dist folder on build
+    path: path.resolve(__dirname, 'docs'),
+    filename: 'main.js',
   },
+  
   module: {
     rules: [
       {
