@@ -3,12 +3,12 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/scripts/index.js", // or wherever your main JS file is
+  entry: "./src/scripts/index.js",
   output: {
-    path: path.resolve(__dirname, 'docs'),
-    filename: 'main.js',
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "docs"), // ✅ output to 'docs' folder for GitHub Pages
+    clean: true,
   },
-  
   module: {
     rules: [
       {
@@ -19,13 +19,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html", // source HTML file
+      template: "./src/index.html",
     }),
   ],
   devServer: {
-    static: "./dist",
+    static: "./docs", // ✅ serve from docs folder for consistency
     open: true,
     hot: true,
   },
-  mode: "development", // or 'production'
+  mode: "development", // switch to 'production' for final deploy
 };
